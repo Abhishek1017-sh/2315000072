@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { AppProvider } from "./providers";
+import { AppHeader } from "@/components/layout/AppHeader";
 
 export const metadata: Metadata = {
-  title: "Notification App",
-  description: "Campus notification platform",
+  title: "Campus Notifications",
+  description: "Stay informed about campus announcements and updates",
 };
 
 interface RootLayoutProps {
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <AppProvider>{children}</AppProvider>
+        <AppProvider>
+          <AppHeader />
+          {children}
+        </AppProvider>
       </body>
     </html>
   );

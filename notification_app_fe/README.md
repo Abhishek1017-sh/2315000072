@@ -55,10 +55,15 @@ npm start
 ```
 src/
 ├── app/              # Next.js App Router
-│   ├── layout.tsx    # Root layout with theme provider
+│   ├── layout.tsx    # Root layout with AppHeader
 │   ├── providers.tsx # Material UI theme configuration
-│   └── page.tsx      # Home page
-├── components/       # Reusable React components
+│   ├── page.tsx      # / - All Notifications
+│   └── priority/
+│       └── page.tsx  # /priority - Priority Inbox
+├── components/
+│   └── layout/       # Layout components
+│       ├── AppHeader.tsx     # Navigation with mobile drawer
+│       └── PageContainer.tsx # Page wrapper with title/description
 ├── hooks/            # Custom React hooks
 │   └── useLogger.ts  # Logger initialization hook
 ├── services/         # API and external services
@@ -69,6 +74,18 @@ src/
 ```
 
 ## Architecture
+
+### Application Shell
+
+The app features a clean student portal design:
+
+- **AppBar**: Sticky header with title "Campus Notifications" and navigation
+- **Navigation**: "All Notifications" and "Priority Inbox" tabs
+- **Mobile Drawer**: Responsive menu on small screens
+- **Page Container**: Consistent layout wrapper with title and description
+- **Theme**: Professional colors, responsive typography
+
+See [docs/SHELL.md](docs/SHELL.md) for detailed design documentation.
 
 ### Logging Integration
 
@@ -106,11 +123,20 @@ Material UI theme is centralized in `src/app/providers.tsx`:
 ```typescript
 const theme = createTheme({
   palette: {
-    primary: { main: "#1976d2" },
-    secondary: { main: "#dc004e" },
+    primary: { main: "#1565c0" },    // Professional blue
+    secondary: { main: "#f57c00" },  // Attention orange
   },
+  // ...
 });
 ```
+
+## Design Highlights
+
+- **Student Portal Feel**: Clean, professional, modern
+- **Responsive**: Works on mobile, tablet, desktop
+- **Accessible**: Semantic HTML, ARIA labels, keyboard navigation
+- **Minimal**: No unnecessary abstractions or UI chrome
+- **Real Spacing**: Realistic typography and padding
 
 ## Tech Stack
 
@@ -121,9 +147,19 @@ const theme = createTheme({
 - **Build Tool**: Turbopack
 - **Linting**: ESLint 9 with Next.js config
 
+## Features Implemented
+
+✅ Application shell with navigation
+✅ Responsive layout (mobile, tablet, desktop)
+✅ Logging middleware integration
+✅ API client service layer
+✅ Material UI theme setup
+✅ TypeScript strict mode
+✅ ESLint configuration
+
 ## Features Not Yet Implemented
 
-- Notification features
+- Notification features (as requested)
 - Real-time updates
 - State management (React Context/Redux)
 - Authentication

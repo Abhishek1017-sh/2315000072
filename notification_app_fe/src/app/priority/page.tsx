@@ -1,14 +1,14 @@
 "use client";
 
-import { Paper, Typography, Button, Skeleton } from "@mui/material";
+import { Paper, Typography, Button } from "@mui/material";
 import { PageContainer } from "@/components/layout";
-import BellIcon from "@mui/icons-material/NotificationsNone";
+import StarIcon from "@mui/icons-material/StarOutline";
 
-export default function Home() {
+export default function PriorityPage() {
   return (
     <PageContainer
-      title="All Notifications"
-      description="Stay informed about campus announcements, events, and important updates."
+      title="Priority Inbox"
+      description="Important notifications and urgent updates that need your attention."
     >
       {/* Empty State */}
       <Paper
@@ -19,7 +19,7 @@ export default function Home() {
           backgroundColor: "#fafafa",
         }}
       >
-        <BellIcon
+        <StarIcon
           sx={{
             fontSize: "4rem",
             color: "text.secondary",
@@ -35,7 +35,7 @@ export default function Home() {
             mb: 1,
           }}
         >
-          No notifications yet
+          No priority notifications
         </Typography>
         <Typography
           sx={{
@@ -44,7 +44,7 @@ export default function Home() {
             mb: 3,
           }}
         >
-          Check back later for campus announcements and updates.
+          Important and urgent notifications will appear here.
         </Typography>
         <Button
           variant="contained"
@@ -56,21 +56,9 @@ export default function Home() {
             fontWeight: 500,
           }}
         >
-          Refresh
+          View All
         </Button>
       </Paper>
-
-      {/* Placeholder Notifications Grid */}
-      <div style={{ marginTop: "2rem" }}>
-        {[1, 2, 3].map((i) => (
-          <Skeleton
-            key={i}
-            variant="rounded"
-            height={120}
-            sx={{ backgroundColor: "#e0e0e0", mb: 2 }}
-          />
-        ))}
-      </div>
     </PageContainer>
   );
 }
