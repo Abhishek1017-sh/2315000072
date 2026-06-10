@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@afford/logging-middleware": "file:../logging_middleware",
+    "@mui/material": "^6.1.0",
+    "@mui/icons-material": "^6.1.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
