@@ -1,12 +1,33 @@
-export { Logger } from "./logger.js";
-export { createLoggingMiddleware } from "./middleware.js";
-export { ConsoleTransport } from "./transports/console.js";
-export { formatJson } from "./formatters/json.js";
+export { Log } from "./log.js";
+export { configureLogging, getLoggingConfig, resetLoggingConfig, API_TOKEN_ENV, API_URL_ENV } from "./config.js";
+export { postLog } from "./client.js";
+export {
+  collectValidationErrors,
+  validateLevel,
+  validateMessage,
+  validatePackageName,
+  validateStack,
+} from "./validation.js";
+export {
+  BACKEND_PACKAGES,
+  FRONTEND_PACKAGES,
+  LOG_LEVELS,
+  SHARED_PACKAGES,
+  STACKS,
+} from "./constants.js";
 export type {
-  LogContext,
-  LogEntry,
+  BackendPackage,
+  BackendPackageName,
+  FrontendPackage,
+  FrontendPackageName,
+  LogFailureResult,
   LogLevel,
-  LoggerOptions,
-  LogTransport,
+  LogPayload,
+  LogResult,
+  LogSuccessResult,
+  LoggingConfig,
+  PackageNameForStack,
+  SharedPackage,
+  Stack,
 } from "./types.js";
-export type { LoggingMiddlewareOptions, RequestContext } from "./middleware.js";
+export type { ValidationError } from "./validation.js";

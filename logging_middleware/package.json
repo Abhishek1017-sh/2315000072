@@ -2,14 +2,27 @@
   "name": "@afford/logging-middleware",
   "version": "0.1.0",
   "private": true,
-  "description": "Structured logging utilities and middleware",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "Evaluation logging middleware for campus notification platform",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "examples"
+  ],
   "scripts": {
     "build": "tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "typescript": "^5.4.0"
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
   }
 }
